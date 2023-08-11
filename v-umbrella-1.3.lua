@@ -122,7 +122,7 @@ local altLabel = Instance.new("TextLabel")
 altLabel.Size = UDim2.new(0.3, 0, 0, 30)
 altLabel.Position = UDim2.new(0, 0, 0, 150)  -- Adjusted position
 altLabel.BackgroundTransparency = 1
-altLabel.Text = "Alt: " .. tostring(altself)  -- Replace 'altValue' with the actual variable
+altLabel.Text = "   Alt: " .. tostring(altself)  -- Replace 'altValue' with the actual variable
 altLabel.TextColor3 = Color3.new(1, 1, 1)
 altLabel.Font = Enum.Font.SourceSans
 altLabel.TextSize = 14
@@ -364,23 +364,107 @@ local function createCommandsPanel()
     hiText.Parent = commandsPanel
 
     	
-    local hiText = Instance.new("TextLabel")
-    hiText.Size = UDim2.new(1, 0, 0, 20)
-    hiText.Position = UDim2.new(0, 0, 0, 30)
-    hiText.BackgroundTransparency = 1
-    hiText.Text = "!freeze  -  Freezes Alt"
-    hiText.TextColor3 = Color3.new(1, 1, 1)
-    hiText.Font = Enum.Font.SourceSans
-    hiText.TextSize = 14
-    hiText.Parent = commandsPanel
+    local a = Instance.new("TextLabel")
+    a.Size = UDim2.new(1, 0, 0.05, 20)
+    a.Position = UDim2.new(0, 0, 0, 30)
+    a.BackgroundTransparency = 1
+    a.Text = "!freeze  -  Freezes Alt"
+    a.TextColor3 = Color3.new(1, 1, 1)
+    a.Font = Enum.Font.SourceSans
+    a.TextSize = 14
+    a.Parent = commandsPanel
+
+	local aa = Instance.new("TextLabel")
+    aa.Size = UDim2.new(1, 0, 0.1, 20)
+    aa.Position = UDim2.new(0, 0, 0, 30)
+    aa.BackgroundTransparency = 1
+    aa.Text = "!unfreeze  -  Unfreezes Alt"
+    aa.TextColor3 = Color3.new(1, 1, 1)
+    aa.Font = Enum.Font.SourceSans
+    aa.TextSize = 14
+    aa.Parent = commandsPanel
+
+
+	local aaa = Instance.new("TextLabel")
+    aaa.Size = UDim2.new(1, 0, 0.15, 20)
+    aaa.Position = UDim2.new(0, 0, 0, 30)
+    aaa.BackgroundTransparency = 1
+    aaa.Text = "!airlock  -  Airlocks Alt"
+    aaa.TextColor3 = Color3.new(1, 1, 1)
+    aaa.Font = Enum.Font.SourceSans
+    aaa.TextSize = 14
+    aaa.Parent = commandsPanel
+	
+local aaaa = Instance.new("TextLabel")
+    aaaa.Size = UDim2.new(1, 0, 0.2, 20)
+    aaaa.Position = UDim2.new(0, 0, 0, 30)
+    aaaa.BackgroundTransparency = 1
+    aaaa.Text = "!unairlock  -  Unairlocks Alt"
+    aaaa.TextColor3 = Color3.new(1, 1, 1)
+    aaaa.Font = Enum.Font.SourceSans
+    aaaa.TextSize = 14
+    aaaa.Parent = commandsPanel
 
 
 
+local aaaaa = Instance.new("TextLabel")
+    aaaaa.Size = UDim2.new(1, 0, 0.25, 20)
+    aaaaa.Position = UDim2.new(0, 0, 0, 30)
+    aaaaa.BackgroundTransparency = 1
+    aaaaa.Text = "!get  -  Alt Force Auto Follow"
+    aaaaa.TextColor3 = Color3.new(1, 1, 1)
+    aaaaa.Font = Enum.Font.SourceSans
+    aaaaa.TextSize = 14
+    aaaaa.Parent = commandsPanel
+
+
+	local aaaaaa = Instance.new("TextLabel")
+    aaaaaa.Size = UDim2.new(1, 0, 0.3, 20)
+    aaaaaa.Position = UDim2.new(0, 0, 0, 30)
+    aaaaaa.BackgroundTransparency = 1
+    aaaaaa.Text = "!stopget  -  Stops Alt Force Auto Follow"
+    aaaaaa.TextColor3 = Color3.new(1, 1, 1)
+    aaaaaa.Font = Enum.Font.SourceSans
+    aaaaaa.TextSize = 14
+    aaaaaa.Parent = commandsPanel
+
+	local aaaaaaa = Instance.new("TextLabel")
+    aaaaaaa.Size = UDim2.new(1, 0, 0.35, 20)
+    aaaaaaa.Position = UDim2.new(0, 0, 0, 30)
+    aaaaaaa.BackgroundTransparency = 1
+    aaaaaaa.Text = "!say  -  Says Message On Alt"
+    aaaaaaa.TextColor3 = Color3.new(1, 1, 1)
+    aaaaaaa.Font = Enum.Font.SourceSans
+    aaaaaaa.TextSize = 14
+    aaaaaaa.Parent = commandsPanel
+
+	
+	local aaaaaaaa = Instance.new("TextLabel")
+    aaaaaaaa.Size = UDim2.new(1, 0, 0.4, 20)
+    aaaaaaaa.Position = UDim2.new(0, 0, 0, 30)
+    aaaaaaaa.BackgroundTransparency = 1
+    aaaaaaaa.Text = "!saymyname  -  Says Host Username"
+    aaaaaaaa.TextColor3 = Color3.new(1, 1, 1)
+    aaaaaaaa.Font = Enum.Font.SourceSans
+    aaaaaaaa.TextSize = 14
+    aaaaaaaa.Parent = commandsPanel
+
+
+	
+
+local b = Instance.new("TextLabel")
+    b.Size = UDim2.new(1, 0, 0.45, 20)
+    b.Position = UDim2.new(0, 0, 0, 30)
+    b.BackgroundTransparency = 1
+    b.Text = "!version  -  Says Pyramids version"
+    b.TextColor3 = Color3.new(1, 1, 1)
+    b.Font = Enum.Font.SourceSans
+    b.TextSize = 14
+    b.Parent = commandsPanel
 
 
 
-
-
+	
 
 
 
