@@ -6,7 +6,8 @@ local LocalPlr = Players.LocalPlayer
 local SelectedPlayer = ""
 local TargetPlr = nil
 local version = "v1.8";
-
+local gameType = "Beta Universal";
+local altself = game.Players.LocalPlayer
 
 
 
@@ -107,6 +108,195 @@ game:GetService("UserInputService").InputBegan:Connect(function(input)
 end)
 
 
+local gameTypeLabel = Instance.new("TextLabel")
+gameTypeLabel.Size = UDim2.new(0.3, 0, 0, 30)
+gameTypeLabel.Position = UDim2.new(0, 0, 0, 120)  -- Adjusted position
+gameTypeLabel.BackgroundTransparency = 1
+gameTypeLabel.Text = "Game Type: " .. tostring(gameType)  -- Replace 'gameType' with the actual variable
+gameTypeLabel.TextColor3 = Color3.new(1, 1, 1)
+gameTypeLabel.Font = Enum.Font.SourceSans
+gameTypeLabel.TextSize = 14
+gameTypeLabel.Parent = mainFrame
+
+local altLabel = Instance.new("TextLabel")
+altLabel.Size = UDim2.new(0.3, 0, 0, 30)
+altLabel.Position = UDim2.new(0, 0, 0, 150)  -- Adjusted position
+altLabel.BackgroundTransparency = 1
+altLabel.Text = "Alt: " .. tostring(altself)  -- Replace 'altValue' with the actual variable
+altLabel.TextColor3 = Color3.new(1, 1, 1)
+altLabel.Font = Enum.Font.SourceSans
+altLabel.TextSize = 14
+altLabel.Parent = mainFrame
+
+local settingsLabel = Instance.new("TextLabel")
+settingsLabel.Size = UDim2.new(0.3, 0, 0.2, 30)
+settingsLabel.Position = UDim2.new(0, 0, 0, 180)  -- Adjusted position
+settingsLabel.BackgroundTransparency = 1
+settingsLabel.Text = "Settings"
+settingsLabel.TextColor3 = Color3.new(1, 1, 1)
+settingsLabel.Font = Enum.Font.SourceSansBold
+settingsLabel.TextSize = 16
+settingsLabel.Parent = mainFrame
+
+local enableFlickButton = Instance.new("TextButton")
+enableFlickButton.Size = UDim2.new(0.3, 0, 0, 30)
+enableFlickButton.Position = UDim2.new(0.05, 0.3, 0.2, 180)  -- Adjusted position
+enableFlickButton.BackgroundColor3 = Color3.fromRGB(11, 11, 11)
+enableFlickButton.Text = "View Commands"
+enableFlickButton.TextColor3 = Color3.new(1, 1, 1)
+enableFlickButton.Font = Enum.Font.SourceSansBold
+enableFlickButton.TextSize = 14
+enableFlickButton.BorderSizePixel = 0
+enableFlickButton.Parent = mainFrame
+
+local disableHostButton = Instance.new("TextButton")
+disableHostButton.Size = UDim2.new(0.4, 0, 0, 30)
+disableHostButton.Position = UDim2.new(0.3, 0, 1, -40)  -- Adjusted position
+disableHostButton.AnchorPoint = Vector2.new(0.5, 0.5)
+disableHostButton.BackgroundColor3 = Color3.fromRGB(11, 11, 11)
+disableHostButton.Text = "Disable Host"
+disableHostButton.TextColor3 = Color3.new(1, 1, 1)
+disableHostButton.Font = Enum.Font.SourceSansBold
+disableHostButton.TextSize = 14
+disableHostButton.BorderSizePixel = 0
+disableHostButton.Parent = mainFrame
+
+
+
+
+local disableHostPanelVisible = false
+local disableHostPanel = nil
+
+local function createDisableHostPanel()
+    disableHostPanel = Instance.new("Frame")
+    disableHostPanel.Size = UDim2.new(0.15, 0, 0.15, 0)  -- Adjusted size
+    disableHostPanel.Position = UDim2.new(0.35, 0, 0.375, 0)  -- Adjusted position
+    disableHostPanel.AnchorPoint = Vector2.new(0.5, 0.5)
+    disableHostPanel.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+    disableHostPanel.BorderSizePixel = 1
+    disableHostPanel.Parent = gui
+    
+    local captionBarDisableHost = Instance.new("Frame")
+    captionBarDisableHost.Size = UDim2.new(1, 0, 0, 30)
+    captionBarDisableHost.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+    captionBarDisableHost.BorderSizePixel = 1
+    captionBarDisableHost.Parent = disableHostPanel
+    
+    local titleDisableHost = Instance.new("TextLabel")
+    titleDisableHost.Size = UDim2.new(1, -30, 1, 0)
+    titleDisableHost.Position = UDim2.new(0, 10, 0, 0)
+    titleDisableHost.BackgroundTransparency = 1
+    titleDisableHost.Text = "Disable Host"
+    titleDisableHost.TextColor3 = Color3.new(1, 1, 1)
+    titleDisableHost.Font = Enum.Font.SourceSansBold
+    titleDisableHost.TextSize = 16
+    titleDisableHost.TextXAlignment = Enum.TextXAlignment.Left
+    titleDisableHost.Parent = captionBarDisableHost
+    
+    local promptText = Instance.new("TextLabel")
+    promptText.Size = UDim2.new(1, -30, 0.6, 0)
+    promptText.Position = UDim2.new(0, 10, 0, 30)
+    promptText.BackgroundTransparency = 1
+    promptText.Text = "Would you like to Disable Host?"
+    promptText.TextColor3 = Color3.new(1, 1, 1)
+    promptText.Font = Enum.Font.SourceSansBold
+    promptText.TextSize = 18
+    promptText.TextWrapped = true
+    promptText.Parent = disableHostPanel
+    
+    local yesButton = Instance.new("TextButton")
+    yesButton.Size = UDim2.new(0.4, -10, 0, 40)
+    yesButton.Position = UDim2.new(0.15, 0, 1, -45)
+    yesButton.BackgroundColor3 = Color3.fromRGB(11, 11, 11)
+    yesButton.Text = "Yes"
+    yesButton.TextColor3 = Color3.new(1, 1, 1)
+    yesButton.Font = Enum.Font.SourceSansBold
+    yesButton.TextSize = 16
+    yesButton.BorderSizePixel = 0
+    yesButton.Parent = disableHostPanel
+    
+    local noButton = Instance.new("TextButton")
+    noButton.Size = UDim2.new(0.4, -10, 0, 40)
+    noButton.Position = UDim2.new(0.55, 0, 1, -45)
+    noButton.BackgroundColor3 = Color3.fromRGB(11, 11, 11)
+    noButton.Text = "No"
+    noButton.TextColor3 = Color3.new(1, 1, 1)
+    noButton.Font = Enum.Font.SourceSansBold
+    noButton.TextSize = 16
+    noButton.BorderSizePixel = 0
+    noButton.Parent = disableHostPanel
+    
+    yesButton.MouseButton1Click:Connect(function()
+        print("Hey")
+        disableHostPanel.Visible = false
+        disableHostPanelVisible = false
+    end)
+    
+    noButton.MouseButton1Click:Connect(function()
+        disableHostPanel.Visible = false
+        disableHostPanelVisible = false
+    end)
+    
+    disableHostPanel.Visible = true
+    disableHostPanelVisible = true
+end
+
+disableHostButton.MouseButton1Click:Connect(function()
+    if not disableHostPanelVisible then
+        if not disableHostPanel then
+            createDisableHostPanel()
+        else
+            disableHostPanel.Visible = true
+            disableHostPanelVisible = true
+        end
+    end
+end)
+
+
+
+
+local commandsPanelVisible = false
+local commandsPanel = nil
+
+local function createCommandsPanel()
+    commandsPanel = Instance.new("Frame")
+    commandsPanel.Size = UDim2.new(0.25, 0, 0.85, 0)  -- Adjusted size
+    commandsPanel.Position = UDim2.new(0.75, 0, 0.25, 0)  -- Adjusted position
+    commandsPanel.AnchorPoint = Vector2.new(1, 0.5)
+    commandsPanel.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+    commandsPanel.BorderSizePixel = 1
+    commandsPanel.Active = true
+    commandsPanel.Draggable = true
+    commandsPanel.Visible = false
+    commandsPanel.Parent = gui
+    
+    local captionBarCommands = Instance.new("Frame")
+    captionBarCommands.Size = UDim2.new(1, 0, 0, 30)
+    captionBarCommands.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+    captionBarCommands.BorderSizePixel = 1
+    captionBarCommands.Parent = commandsPanel
+    
+    local titleCommands = Instance.new("TextLabel")
+    titleCommands.Size = UDim2.new(1, -30, 1, 0)
+    titleCommands.Position = UDim2.new(0, 10, 0, 0)
+    titleCommands.BackgroundTransparency = 1
+    titleCommands.Text = "Pyramid Commands"
+    titleCommands.TextColor3 = Color3.new(1, 1, 1)
+    titleCommands.Font = Enum.Font.SourceSansBold
+    titleCommands.TextSize = 16
+    titleCommands.TextXAlignment = Enum.TextXAlignment.Left
+    titleCommands.Parent = captionBarCommands
+    
+    local closeButtonCommands = Instance.new("TextButton")
+    closeButtonCommands.Size = UDim2.new(0, 30, 0, 30)
+    closeButtonCommands.Position = UDim2.new(1, -30, 0, 0)
+    closeButtonCommands.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+    closeButtonCommands.Text = "X"
+    closeButtonCommands.TextColor3 = Color3.new(1, 1, 1)
+    closeButtonCommands.Font = Enum.Font.SourceSansBold
+    closeButtonCommands.TextSize = 16
+    closeButtonCommands.BorderSizePixel = 0
+    closeButtonCommands.Parent = captionBarCommands
 
 
 
@@ -118,6 +308,132 @@ end)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+    local hiText = Instance.new("TextLabel")
+    hiText.Size = UDim2.new(1, 0, 0, 20)
+    hiText.Position = UDim2.new(0, 0, 0, 30)
+    hiText.BackgroundTransparency = 1
+    hiText.Text = "!bring  -  Brings Alt To Host"
+    hiText.TextColor3 = Color3.new(1, 1, 1)
+    hiText.Font = Enum.Font.SourceSans
+    hiText.TextSize = 14
+    hiText.Parent = commandsPanel
+
+    	
+    local hiText = Instance.new("TextLabel")
+    hiText.Size = UDim2.new(1, 0, 0, 20)
+    hiText.Position = UDim2.new(0, 0, 0, 30)
+    hiText.BackgroundTransparency = 1
+    hiText.Text = "!freeze  -  Freezes Alt"
+    hiText.TextColor3 = Color3.new(1, 1, 1)
+    hiText.Font = Enum.Font.SourceSans
+    hiText.TextSize = 14
+    hiText.Parent = commandsPanel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+    
+    closeButtonCommands.MouseButton1Click:Connect(function()
+        commandsPanel.Visible = false
+        commandsPanelVisible = false
+    end)
+    
+    commandsPanel.Visible = true
+    commandsPanelVisible = true
+end
+
+enableFlickButton.MouseButton1Click:Connect(function()
+    if not commandsPanelVisible then
+        if not commandsPanel then
+            createCommandsPanel()
+        else
+            commandsPanel.Visible = true
+            commandsPanelVisible = true
+        end
+    end
+end)
 
 
 
