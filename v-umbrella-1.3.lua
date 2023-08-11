@@ -275,7 +275,7 @@ local function handleTeleporting()
 
     -- Attempt to teleport the player back to the previous position
     repeat
-        teleportTo(prevPosition)
+      
         wait()
     until (game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position - prevPosition).Magnitude <= 1
 
