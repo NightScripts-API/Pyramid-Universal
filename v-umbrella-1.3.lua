@@ -35,7 +35,7 @@ mainFrame.Size = UDim2.new(0, 600, 0, 450)
 mainFrame.Position = UDim2.new(0.5, -300, 0.5, -225)
 mainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 mainFrame.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
-mainFrame.BorderSizePixel = 1
+mainFrame.BorderSizePixel = 1.5
 mainFrame.Active = true
 mainFrame.Draggable = true
 mainFrame.Visible = true  -- Default visibility
@@ -44,7 +44,7 @@ mainFrame.Parent = gui
 local captionBar = Instance.new("Frame")
 captionBar.Size = UDim2.new(1, 0, 0, 30)
 captionBar.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
-captionBar.BorderSizePixel = 1
+captionBar.BorderSizePixel = 1.5
 captionBar.Parent = mainFrame
 
 local title = Instance.new("TextLabel")
